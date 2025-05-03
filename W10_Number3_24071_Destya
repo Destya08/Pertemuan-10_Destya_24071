@@ -1,0 +1,31 @@
+class Book:
+    def describe(self):
+        pass
+
+class Fiksi(Book) :
+    def genre(self) :
+        print ("Buku dengan genre fiksi adalah buku yang berisi cerita khayalan")
+        print ("Contoh dari buku fiksi adalah novel dan komik")
+    
+class Nonfiksi(Book) :
+    def genre(self) :
+        print ("Buku dengan genre non-fiksi adalah buku yang berisi cerita berdasarkan kejadian nyata")
+        print ("Contoh dari buku non-fiksi adalah jurnal dan biografi")
+    
+class Factory:
+    @staticmethod
+    def profile_buku(genre_buku):
+        if genre_buku == "Fiksi":
+            return Fiksi()
+        elif genre_buku == "Nonfiksi":
+            return Nonfiksi()
+        else:
+            return ("Buku dengan genre tersebut tidak ada")
+
+print("Terdapat 2 Jenis Genre Buku Yaitu :")
+
+book1 = Factory.profile_buku("Fiksi")
+book1.genre()
+
+book2 = Factory.profile_buku("Nonfiksi")
+book2.genre()
